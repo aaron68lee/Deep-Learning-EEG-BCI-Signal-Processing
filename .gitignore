@@ -2,3 +2,6 @@
 /EEG-Data
 
 # Files
+
+.env
+hw6.js
