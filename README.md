@@ -7,7 +7,7 @@ Research Paper: [EEG Decoding and Classification with CNN-LSTMs](https://docs.go
 
 # The Dataset
 
-[EEG Signal][/Gallery/EEG.png]
+![EEG Signal][./Gallery/EEG.png]
 
 # Model Architectures
 
@@ -15,16 +15,16 @@ We propose several model architectures including an vanilla CNN, LSTM, and CNN-L
 
 <hr>
 CNN Model<br>
-[CNN Model Architecture](/Gallery/CNN_architecture.png)
+![CNN Model Architecture](./Gallery/CNN_architecture.png)
 
 LSTM Model<br>
-[LSTM Model Architecture](/Gallery/LSTM_architecture.png)
+[LSTM Model Architecture](./Gallery/LSTM_architecture.png)
 
 ConvLSTM<br>
-[CNN-LSTM Model Architecture](/Gallery/LSTM_architecture.png)
+![CNN-LSTM Model Architecture](./Gallery/LSTM_architecture.png)
 
 EEG-ResNet<br>
-[EEG-Resnet-15 Model Architecture](/Gallery/Resnet-15_architecture.png)
+![EEG-Resnet-15 Model Architecture](./Gallery/Resnet-15_architecture.png)
 
 <hr>
 # Future Directions
