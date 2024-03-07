@@ -7,26 +7,28 @@ Research Paper: [EEG Decoding and Classification with CNN-LSTMs](https://docs.go
 
 # The Dataset
 
-![EEG Signal][./Gallery/EEG.png]
+![EEG Signal](./Gallery/EEG.png)
 
 # Model Architectures
 
 We propose several model architectures including an vanilla CNN, LSTM, and CNN-LSTM fusion model described more in depth within our paper. 
 
 <hr>
-CNN Model<br>
+
+CNN Model<br><br>
 ![CNN Model Architecture](./Gallery/CNN_architecture.png)
 
-LSTM Model<br>
+LSTM Model<br><br>
 [LSTM Model Architecture](./Gallery/LSTM_architecture.png)
 
-ConvLSTM<br>
+ConvLSTM<br><br>
 ![CNN-LSTM Model Architecture](./Gallery/LSTM_architecture.png)
 
-EEG-ResNet<br>
+EEG-ResNet<br><br>
 ![EEG-Resnet-15 Model Architecture](./Gallery/Resnet-15_architecture.png)
 
 <hr>
+
 # Future Directions
 
 * We implement EEG signal generation using a GAN architecture and assess artificial EEG generation performance using our existing classification models. 
