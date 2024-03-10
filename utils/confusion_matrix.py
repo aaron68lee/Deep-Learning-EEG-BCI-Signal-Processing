@@ -98,6 +98,8 @@ def metrics_report(y_true, y_pred, matrix_on=True, categorical=True, savefig=Fal
     - savefig: Whether to save the figure
     - fig_path: Path to save the figure
     """
+    y_true_categorical = y_true
+    y_pred_categorical = y_pred
     if not categorical:
         # Data is one-hot encoded, convert to categorical labels
         y_true_categorical = np.argmax(y_true, axis=1)
