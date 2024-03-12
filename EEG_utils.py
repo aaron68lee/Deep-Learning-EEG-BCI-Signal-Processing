@@ -10,7 +10,7 @@ from scipy import interp
 
 ##################################### Plot Confusion Matrix #################################
 
-def confusion_matrix(y_true, y_pred,
+def print_confusion_matrix(y_pred, y_true,
                           class_names=['Feet', 'Left Hand', 'Right Hand', 'Tongue'],
                           savefig=False, fig_path='../Gallery/confusion_matrix.png'):
     """
@@ -52,7 +52,7 @@ def confusion_matrix(y_true, y_pred,
 
 ##################################### Model Metrics #################################
     
-def metrics_report(y_true, y_pred, matrix_on=True, categorical=True, savefig=False, fig_path='../Gallery/confusion_matrix.png'):
+def metrics_report(y_pred, y_true, matrix_on=False, categorical=True, savefig=False, fig_path='../Gallery/confusion_matrix.png'):
     """
     Generate and display classification metrics.
 
@@ -91,7 +91,7 @@ def metrics_report(y_true, y_pred, matrix_on=True, categorical=True, savefig=Fal
 
 
 
-def ROC(y_true, y_pred, class_names = ['Feet', 'Left Hand', 'Right Hand', 'Tongue'], 
+def ROC(y_pred, y_true, class_names = ['Feet', 'Left Hand', 'Right Hand', 'Tongue'], 
         categorical=True, savefig=False, fig_path='../Gallery/ROC.png'):
     """
     Generate and display ROC / AUC curve
@@ -148,4 +148,7 @@ def ROC(y_true, y_pred, class_names = ['Feet', 'Left Hand', 'Right Hand', 'Tongu
     plt.ylabel('True Positive Rate')
     plt.title('Receiver Operating Characteristic (ROC) Curves')
     plt.legend(loc='lower right')
+
+    if savefig:
+        plt.savefig(fig_path)
     plt.show()
