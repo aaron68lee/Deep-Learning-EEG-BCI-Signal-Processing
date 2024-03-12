@@ -47,3 +47,36 @@ def ResNetCustom(reg=1e-3, pool_size=3, dropout=0.5,
     output_layer = Dense(output_classes, activation='softmax', kernel_regularizer=regularizers.L2(reg))(output_layer) # Output FC layer with softmax activation
 
     return Model(inputs=input_layer, outputs=output_layer)
+
+def conv_block(x, num_filter, pool_size=3, kernel_size=5, dropout=0.5, reg=1e-3, input_size=(400, 1, 22)):
+    x = Conv2D(filters=num_filter, kernel_size=(kernel_size,1), padding='same', activation='relu', input_shape=input_size, kernel_regularizer=regularizers.L2(reg))(x)
+    x = MaxPooling2D(pool_size=(pool_size, 1), padding='same')(x)
+    x = BatchNormalization()(x)
+    x = Dropout(dropout)(x)
+    return x
+
+def Good_Resnet(reg=0, pool_size=3, dropout=0.5, filters=[10 for _ in range(4)], affine_layer_sizes=[], num_filters=[25, 50, 100, 200], input_shape=(400, 1, 22), output_classes=4, res_block_depth=1):
+    input_layer = Input(shape=input_shape)
+    output_layer = conv_block(input_layer, num_filter=num_filters[0], pool_size=pool_size, kernel_size=filters[0], dropout=dropout, reg=reg, input_size=input_shape)
+    # Residual blocks
+    for k, n in zip(filters[1:], num_filters[1:]):
+        for _ in range(res_block_depth):
+            output_layer = residual_block(output_layer,
+                                          num_filter=n,
+                                          kernel_size=k,
+                                          dropout=dropout,
+                                          reg=reg,
+                                          input_size=input_shape)
+        output_layer = MaxPooling2D(pool_size=(pool_size,1), padding='same') (output_layer)
+        output_layer = BatchNormalization()(output_layer)
+        output_layer = Dropout(dropout)(output_layer)
+    
+
+    output_layer = Flatten()(output_layer) # Flattens the input
+    for affine in affine_layer_sizes:
+        output_layer = Dense(affine, activation='relu', kernel_regularizer=regularizers.L2(reg))(output_layer)
+        output_layer = BatchNormalization()(output_layer)
+        output_layer = Dropout(dropout)(output_layer)
+    output_layer = Dense(output_classes, activation='softmax', kernel_regularizer=regularizers.L2(reg))(output_layer) # Output FC layer with softmax activation
+
+    return Model(inputs=input_layer, outputs=output_layer)
