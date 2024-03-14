@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix, classification_report, cohen_kappa_score, matthews_corrcoef
 from sklearn.metrics import ConfusionMatrixDisplay
 
 from sklearn.metrics import roc_curve, auc
@@ -136,6 +136,12 @@ def metrics_report(y_pred, y_true, matrix_on=False, categorical=True, savefig=Fa
         conf_mat = confusion_matrix(y_true, y_pred)
         disp = ConfusionMatrixDisplay(conf_mat, display_labels=np.arange(4))
         disp.plot(cmap='viridis', values_format='d') # .2% for percent display option
+
+    # Calculate and print Cohen's kappa and Matthews correlation coefficient
+    kappa = cohen_kappa_score(y_true, y_pred)
+    mcc = matthews_corrcoef(y_true, y_pred)
+    print(f"Cohen's Kappa: {kappa}")
+    print(f"Matthews Correlation Coefficient (MCC): {mcc}")
 
     # Generate and display the classification report
     report = classification_report(y_true, y_pred, target_names=np.arange(4).astype(str))
