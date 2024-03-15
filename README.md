@@ -3,7 +3,9 @@
 Our research concerns EEG signal processing for human brain waves using CNN and RNN models for action classification. 
 We compare performance of CNNs and RNNs to LSTMs using F1 score as a metric for classifcation quality.
 
-Research Paper: [EEG Decoding and Classification with CNN-LSTMs](https://docs.google.com/document/d/1aJmhZyo0kQp_02A5t0qFZwQKrVn9tUkNpD6fcJEKmU8/edit?usp=sharing)
+Research Paper: [Deep Learning For Decoding of Brain Signals on the Human EEG](https://drive.google.com/file/d/14NE2_KY8IA6PcPQ0zYl6kqTLhWK3iRHW/view?usp=sharing)<br>
+
+Arxiv Pre-print: [Survey of CNN and Post-CNN Models For Decoding of Human EEG Data](https://drive.google.com/file/d/1AaAh4jNYIS8A8_9bTv3GlmKaNuTCbsoP/view?usp=sharing)
 
 # The Dataset
 
